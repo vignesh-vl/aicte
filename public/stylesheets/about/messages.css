@@ -1,0 +1,55 @@
+#about-messages {
+    padding-inline: var(--lr-p);
+}
+
+#content-container {
+    display: grid;
+    grid-template-columns:1fr 1fr;
+    gap: 2em;
+}
+
+.quote {
+    font-size: var(--fs-lg);
+    font-weight: 500;
+    text-align: right;
+    font-style: italic;
+}
+
+#right {
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+}
+
+#bottom {
+    font-size: var(--fs-md);
+    text-align: right;
+    font-weight: 350;
+}
+
+#right h2 {
+    margin-bottom:0;
+}
+
+@media screen and (max-width: 500px) {
+    #right {
+        grid-area: right;
+    }
+
+    #left {
+        grid-area: left;
+    }
+
+    #content-container {
+        grid-template-areas: 'right right' 'left left'; 
+    }
+
+    .quote, #bottom {
+        text-align: left;
+    }
+
+    #right .sub-title.right {
+        margin-inline: 0 auto;
+        padding-inline: 0 var(--xtra-len);
+    }
+}

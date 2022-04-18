@@ -1,0 +1,34 @@
+extends ../layouts/layout
+
+block head
+    title Press Release - AICTE
+
+block css 
+    link(rel="stylesheet" href="/stylesheets/news/common.css")
+    link(rel="stylesheet" href="/stylesheets/news/press-release.css")
+    link(rel="stylesheet" href="/stylesheets/partials/paginate.css")
+    link(rel="stylesheet" href="/stylesheets/partials/loader.css")
+
+block content 
+    section#news-press.width-control-400
+        h1.page-title Press release
+        .hero
+            img(src="/images/news-press-release.svg" alt="news-press-hero")
+            p Read all the current and latest news releases from AICTE
+
+        div#scroll-here
+            h2.sub-title.left Press Release
+            div.news-content
+                #content-container
+
+                -var api = '/api/press-release' // inherited by paginate
+                include ../partials/paginate
+
+                -var message = "Fetching press releases..."
+                -var id = "loader-paginate"
+                include ../partials/loader
+
+block scripts 
+    script(src="/javascripts/news-press-release.js")  
+    script(src="/javascripts/paginate.js" defer) 
+    script(src="/javascripts/loader.js" defer) 

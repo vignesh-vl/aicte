@@ -1,0 +1,33 @@
+extends ../layouts/layout
+
+block head
+    title News - AICTE
+
+block css 
+    link(rel="stylesheet" href="/stylesheets/news/common.css")
+    link(rel="stylesheet" href="/stylesheets/news/news.css")
+    link(rel="stylesheet" href="/stylesheets/partials/paginate.css")
+    link(rel="stylesheet" href="/stylesheets/partials/loader.css")
+
+block content 
+    section#news-news.width-control-700
+        h1.page-title news
+        .hero
+            img(src="/images/news-news-hero.svg" alt="news-news-hero")
+
+        div#scroll-here
+            h2.sub-title.left News
+            div.news-content
+                #content-container
+
+                -var api = '/api/news' // inherited by paginate
+                include ../partials/paginate
+
+                -var message = "Fetching news..."
+                -var id = "loader-paginate"
+                include ../partials/loader
+
+block scripts 
+    script(src="/javascripts/news-news.js")  
+    script(src="/javascripts/paginate.js" defer) 
+    script(src="/javascripts/loader.js" defer) 

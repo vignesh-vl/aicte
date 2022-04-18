@@ -1,0 +1,26 @@
+#news-press #content-container {
+    gap: 2.5em;
+    justify-content: start;
+}
+
+#news-press {
+    padding-inline: var(--lr-p);
+}
+
+.dark #news-press .news-container {
+    --c: rgba(39, 39, 39, 0.1);
+}
+
+#news-press .news-container {
+    --c: rgba(0, 0, 0, 0.1);
+    grid-template-rows: none;
+    box-shadow: 4px 4px 4px 0px var(--c);
+    background-color: var(--white);
+    flex: 0 0 100%;
+    padding: 0.5em;
+}
+
+#news-press .headline {
+    font-size: var(--fs-md);
+    color: var(--primary);
+}
